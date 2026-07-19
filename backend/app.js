@@ -1,9 +1,11 @@
+import cors from "cors";
 import express from "express";
 import { config } from "dotenv";
-import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbConnection.js";
+import messageRouter from "./router/messageRouter.js";
+import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 
 // For ENV File
 const app = express();
@@ -22,6 +24,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// For File upload
 app.use(
     fileUpload({
         useTempFiles: true,
@@ -29,6 +32,13 @@ app.use(
     })
 );
 
+// For Routes
+app.use("/api/v1/message", messageRouter)
+
+// For Database connection
 dbConnection();
+
+// For Error Message
+app.use(errorMiddleware);
 
 export default app;
