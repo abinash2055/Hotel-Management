@@ -24,8 +24,8 @@ const appointmentSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: [true, "Phone Is Required!"],
-    minLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
-    maxLength: [11, "Phone Number Must Contain Exact 11 Digits!"],
+    minLength: [7, "Phone Number Must Contain Exact 7 Digits!"],
+    maxLength: [10, "Phone Number Must Contain Exact 10 Digits!"],
   },
 
   nic: {
@@ -88,7 +88,7 @@ const appointmentSchema = new mongoose.Schema({
     ref: "User",
     required: [true, "Patient Id Is Required!"],
   },
-  
+
   status: {
     type: String,
     enum: ["Pending", "Accepted", "Rejected"],
