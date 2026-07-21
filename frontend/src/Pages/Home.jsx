@@ -7,12 +7,12 @@ import Departments from "../components/Departments";
 const Home = () => {
   return (
     <>
-    <Hero title={"Welcome to SigPer Medical Care | Your Trusted Health Provider"} imageUrl={"/hero.png"} />
+      <Hero title={"Welcome to SIGPER Medical Care | Your Trusted Health Provider"} imageUrl={"/hero.png"} />
 
-    <Biography imageUrl={"/about.png"} />
+      <Biography imageUrl={"/about.png"} />
 
-    <Departments />
-    <MessageForm />
+      <Departments />
+      <MessageForm />
     </>
   )
 }

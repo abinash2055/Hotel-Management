@@ -10,6 +10,7 @@ import Login from "./Pages/Login"
 import { ToastContainer } from 'react-toastify';
 import Navbar from './components/Navbar';
 import { Context } from "./main";
+import Footer from './components/Footer';
 
 const App = () => {
   const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Footer />
         <ToastContainer position='top-center' />
       </Router>
     </>

@@ -115,7 +115,7 @@ const AppointmentForm = () => {
               })}
             </select>
 
-            {/* <select value={`${doctorFirstName} ${doctorLastName}`} onChange={(e) => {
+            <select value={`${doctorFirstName} ${doctorLastName}`} onChange={(e) => {
               const [firstName, lastName] = e.target.value.split(" ");
               setDoctorFirstName(firstName);
               setDoctorLastName(lastName);
@@ -124,22 +124,6 @@ const AppointmentForm = () => {
               <option value="">Select Doctor</option>
               {doctors.filter((doctor) => doctor.doctorDepartment === department).map((doctor, index) => (
                 <option value={`${doctor.firstName} ${doctor.lastName}`} key={index} >
-                  {doctor.firstName} {doctor.lastName}
-                </option>
-              ))}
-            </select> */}
-
-            <select value={JSON.stringify({ firstName: doctorFirstName, lastName: doctorLastName })}
-              onChange={(e) => {
-                const { firstName, lastName } = JSON.parse(e.target.value);
-                setDoctorFirstName(firstName);
-                setDoctorLastName(lastName);
-              }}
-              disabled={!department}
-            >
-              <option value="">Select Doctor</option>
-              {doctors.filter((doctor) => doctor.doctorDepartment === department).map((doctor, index) => (
-                <option key={index} value={JSON.stringify({ firstName: doctor.firstName, lastName: doctor.lastName })}>
                   {doctor.firstName} {doctor.lastName}
                 </option>
               ))}

@@ -7,11 +7,11 @@ const Hero = ({ title, imageUrl }) => {
         <div className="banner">
           <h1>{title}</h1>
           <p>
-            SigPer Medical Care is a state-of-the-art facility dedicated
+            SIGPER Medical Care is a state-of-the-art facility dedicated
             to providing comprehensive healthcare services with compassion and
             expertise. Our team of skilled professionals is committed to
             delivering personalized care tailored to each patient's needs. At
-            SigPer, we prioritize your well-being, ensuring a harmonious
+            SIGPER, we prioritize your well-being, ensuring a harmonious
             journey towards optimal health and wellness.
           </p>
         </div>
