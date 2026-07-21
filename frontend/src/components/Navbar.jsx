@@ -4,6 +4,7 @@ import { Context } from "../main";
 import axios from 'axios';
 import { toast } from "react-toastify";
 import { ToastContainer } from 'react-toastify';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -39,6 +40,10 @@ const Navbar = () => {
         {isAuthenticated ? (<button className="logoutBtn btn" onClick={handleLogout}>
           LOGOUT </button>) : (<button className="logoutBtn btn" onClick={goToLogin}>
             LOGIN</button>)}
+      </div>
+
+      <div className="hamburger" onClick={() => setShow(!show)}>
+        <GiHamburgerMenu />
       </div>
     </nav>
   )
