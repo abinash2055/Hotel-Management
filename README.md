@@ -79,9 +79,9 @@ npm run dev
 
 ## 4. Open in Browser
 
-- **Frontend:** http://localhost:5173
-- **Admin Dashboard:** http://localhost:5174 *(or the port shown in your terminal)*
-- **Backend API:** http://localhost:4000 *(or your configured port)*
+- **Frontend:**hospitalfrontendmanagement.netlify.app
+- **Admin Dashboard:** hospitaladmindashboard.netlify.app 
+- **Backend API:** https://hospital-management-system-psg0.onrender.com
 
 ---
 
