@@ -10,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+ 
   const navigateTo = useNavigate();
 
   const handleLogin = async (e) => {
@@ -22,10 +22,10 @@ const Login = () => {
       ).then((res) => {
         toast.success(res.data.message);
         setIsAuthenticated(true);
-        navigateTo("/");
-        setEmail("");
-        setPassword("");
-        setConfirmPassword("");
+        // navigateTo("/");
+        // setEmail("");
+        // setPassword("");
+        // setConfirmPassword("");
       });
     } catch (error) {
       toast.error(error.response.data.message);

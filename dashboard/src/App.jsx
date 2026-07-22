@@ -15,7 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "./App.css";
 
 const App = () => {
-  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
+  const { isAuthenticated, setIsAuthenticated, setUser, loading, setLoading } = useContext(Context);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -28,6 +28,8 @@ const App = () => {
       } catch (error) {
         setIsAuthenticated(false);
         setUser({})
+      } finally {
+        setLoading(false);
       }
     };
     fetchUser();
@@ -37,14 +39,18 @@ const App = () => {
     <>
       <Router>
         <Sidebar />
-        <Routes>
-          <Route path="/" element={< Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/doctor/addnew" element={<AddNewDoctor />} />
-          <Route path="/admin/addnew" element={<AddNewAdmin />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/doctors" element={<Doctors />} />
-        </Routes>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <Routes>
+            <Route path="/" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
+            <Route path="/login" element={!isAuthenticated ? <Login /> : <Navigate to="/" />} />
+            <Route path="/doctor/addnew" element={<AddNewDoctor />} />
+            <Route path="/admin/addnew" element={<AddNewAdmin />} />
+            <Route path="/messages" element={<Messages />} />
+            <Route path="/doctors" element={<Doctors />} />
+          </Routes>
+        )}
         <ToastContainer position="top-center" />
       </Router>
     </>

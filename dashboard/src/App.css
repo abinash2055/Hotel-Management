@@ -22,6 +22,7 @@ body {
   background: #e5e5e5;
   padding: 40px;
   height: 100vh;
+  overflow-y: auto;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
@@ -161,12 +162,13 @@ body {
   gap: 20px;
 }
 .dashboard .banner:first-child {
-  height: 35vh;
   display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 .dashboard .banner:first-child .firstBox {
-  flex: 2;
+  flex: none;
+  width: 100%;
   display: flex;
   align-items: center;
   border-radius: 20px;
@@ -183,18 +185,20 @@ body {
 .dashboard .banner:first-child .firstBox .content div {
   display: flex;
   align-items: center;
-  font-size: 34px;
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
   margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 .dashboard .banner:first-child .firstBox .content div p {
   margin-right: 10px;
-  font-size: 34px;
+  font-size: clamp(1.2rem, 2.5vw, 2.2rem);
 }
 .dashboard .banner:first-child .firstBox .content div h5 {
   color: #ff008d;
 }
 .dashboard .banner:first-child .firstBox .content p {
-  font-size: 16px;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  line-height: 1.5;
 }
 .dashboard .banner:first-child .secondBox {
   background: #3939d9f2;
@@ -206,7 +210,7 @@ body {
 }
 .dashboard .banner:first-child .secondBox,
 .dashboard .banner:first-child .thirdBox {
-  flex: 1;
+  flex: none;
   border-radius: 20px;
   padding: 20px 25px;
   display: flex;
@@ -216,48 +220,76 @@ body {
 }
 .dashboard .banner:first-child .secondBox p,
 .dashboard .banner:first-child .thirdBox p {
-  font-size: 24px;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 600;
 }
 .dashboard .banner:first-child .secondBox h3,
 .dashboard .banner:first-child .thirdBox h3 {
-  font-size: 34px;
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 700;
   letter-spacing: 2px;
 }
-.dashboard .banner:last-child {
-  height: 65vh;
+
+@media (min-width: 1025px) {
+  .dashboard .banner:first-child {
+    flex-direction: row;
+    height: 35vh;
+  }
+  .dashboard .banner:first-child .firstBox {
+    flex: 2;
+    width: auto;
+  }
+  .dashboard .banner:first-child .secondBox,
+  .dashboard .banner:first-child .thirdBox {
+    flex: 1;
+    min-width: 180px;
+    width: auto;
+  }
+}
+.dashboard .appointment-section {
   background: #fff;
   border-radius: 20px;
-  padding: 40px;
+  padding: clamp(16px, 2vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 50vh;
 }
-.dashboard .banner:last-child h5 {
-  font-size: 24px;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+.dashboard .appointment-section h5 {
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  letter-spacing: 1px;
   color: #111;
+  margin: 0;
+}
+.dashboard .table-responsive {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
 }
 .dashboard .banner table {
   width: 100%;
   color: #111;
-  font-size: 20px;
+  font-size: clamp(0.75rem, 1.2vw, 1.1rem);
+  border-collapse: collapse;
+  min-width: 650px;
 }
 .dashboard .banner table select {
-  font-size: 20px;
+  font-size: clamp(0.7rem, 1vw, 1rem);
   border: none;
   width: 100%;
   font-weight: 600;
+  background: transparent;
 }
 .dashboard table td svg{
   display: flex;
   margin: 0 auto;
 }
 .dashboard table td .green{
-  font-size: 20px;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
   color: #16a34a;
 }
 .dashboard table td .red{
-  font-size: 20px;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
   color: #dc2626;
 }
 .dashboard .banner table select:focus {
@@ -278,65 +310,18 @@ body {
 }
 .dashboard .banner table thead th {
   padding: 12px 0;
+  white-space: nowrap;
+  text-align: left;
 }
 .dashboard .banner table tbody td {
   padding: 12px 0;
+  white-space: nowrap;
 }
-@media (max-width: 1376px) {
-  .dashboard .banner:first-child .firstBox .content div,
-  .dashboard .banner:first-child .firstBox .content div p {
-    font-size: 26px;
-  }
-  .dashboard .banner:first-child .firstBox .content p {
-    font-size: 14px;
-  }
-  .dashboard .banner:first-child .secondBox p,
-  .dashboard .banner:first-child .thirdBox p,
-  .dashboard .banner:first-child .secondBox h3,
-  .dashboard .banner:first-child .thirdBox h3 {
-    font-size: 20px;
-  }
-}
-@media (max-width: 1020px) {
-  .dashboard {
-    height: fit-content;
-  }
-  .dashboard .banner:first-child,
-  .dashboard .banner:last-child {
-    flex-wrap: wrap;
-    height: fit-content;
-  }
-  .dashboard .banner:first-child .firstBox {
-    flex: none;
-    width: 100%;
-    height: 265px;
-  }
-  .dashboard .banner:first-child .secondBox,
-  .dashboard .banner:first-child .thirdBox {
-    height: 175px;
-  }
-}
-@media (max-width: 620px) {
-  .dashboard .banner:first-child .secondBox,
-  .dashboard .banner:first-child .thirdBox {
-    width: 100%;
-    flex: none;
-  }
-}
-@media (max-width: 485px) {
-  .dashboard .banner:first-child .firstBox {
-    flex-direction: column;
-    height: fit-content;
-    padding: 20px;
-  }
-  .dashboard .banner:first-child .firstBox img {
-    width: 270px;
-    height: 270px;
-    margin-bottom: 25px;
-  }
-  .dashboard .banner:first-child .firstBox div {
-    justify-content: center;
-  }
+.dashboard .no-appointments {
+  text-align: center;
+  font-size: 1rem;
+  padding: 30px 0;
+  color: gray;
 }
 
 .sidebar {

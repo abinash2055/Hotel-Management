@@ -48,7 +48,7 @@ const Messages = () => {
                         );
                     })
                 ) : (
-                    <h1>No Messages!</h1>
+                    <h1>No Messages....</h1>
                 )}
             </div>
         </section>
