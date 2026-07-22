@@ -79,8 +79,8 @@ npm run dev
 
 ## 4. Open in Browser
 
-- **Frontend:**hospitalfrontendmanagement.netlify.app
-- **Admin Dashboard:** hospitaladmindashboard.netlify.app 
+- **Frontend: ** hospitalfrontendmanagement.netlify.app
+- **Admin Dashboard: ** hospitaladmindashboard.netlify.app
 - **Backend API:** https://hospital-management-system-psg0.onrender.com
 
 ---
